@@ -1,0 +1,5 @@
+{
+    "yaml.schemas": {
+        "kubernetes://schema/v1%40service": "file:///c%3A/Users/Insha%20Khan/llm-agentic-ai/flipkart-chatbot/flask-deployment.yaml"
+    }
+}
