@@ -44,7 +44,7 @@ jobs:
       
       - name: Push Image to Docker Hub
         run: |
-          docker tag flipkart-app:latest ${{ secrets.DOCKER_USERNAME }}/flipkart-app:v1
+          docker tag flipkart-app:v1 ${{ secrets.DOCKER_USERNAME }}/flipkart-app:v1
           docker push ${{ secrets.DOCKER_USERNAME }}/flipkart-app:v1
       
       - name: Configure AWS
@@ -53,9 +53,7 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
-      
-
-      # deployment using kubernetes
+        
       - name: Update kubeconfig
         run: |
           aws eks update-kubeconfig --name ${{ secrets.EKS_CLUSTER_NAME }} --region ${{ secrets.AWS_REGION }}
